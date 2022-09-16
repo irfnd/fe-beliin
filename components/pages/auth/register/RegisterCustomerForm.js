@@ -2,6 +2,10 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { RegisterCustomerSchema } from "~/helpers/validations";
+import { useDispatch } from "react-redux";
+import { AuthActions } from "~/helpers/redux/slices/AuthSlice";
+import AuthToast from "~/components/toasts/authToast";
 
 // Styles, Icons
 import { Flex, Text, Link, Button } from "@chakra-ui/react";
@@ -12,16 +16,25 @@ import Input from "~/components/inputs/Input";
 export default function RegisterCustomerForm() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const router = useRouter();
+	const dispatch = useDispatch();
 
-	const formOptions = {};
+	const formOptions = { resolver: yupResolver(RegisterCustomerSchema) };
 	const methods = useForm(formOptions);
 
-	const onSubmit = (data) => {
+	const { showToast: successToast } = AuthToast({
+		title: "Register Successfully.",
+		description: "You have successfully registered as a customer.",
+		status: "success",
+		duration: 2000,
+	});
+
+	const onSubmit = ({ name, email, phone, password }) => {
 		setIsSubmitting(true);
-		setTimeout(() => {
-			console.log(data);
-			setIsSubmitting(false);
-		}, 3000);
+		const data = { name, email, phone, password, role: "customer" };
+		dispatch(AuthActions.register(data));
+		setTimeout(() => setIsSubmitting(false), 1000);
+		setTimeout(() => successToast(), 1000);
+		setTimeout(() => router.push("/login"), 3000);
 	};
 
 	return (

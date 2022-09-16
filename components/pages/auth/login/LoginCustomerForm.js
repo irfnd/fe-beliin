@@ -2,6 +2,10 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { LoginCustomerSchema } from "~/helpers/validations";
+import { useDispatch, useSelector } from "react-redux";
+import { AuthActions } from "~/helpers/redux/slices/AuthSlice";
+import AuthToast from "~/components/toasts/authToast";
 
 // Styles, Icons
 import { Flex, Text, Link, Button } from "@chakra-ui/react";
@@ -11,17 +15,42 @@ import Input from "~/components/inputs/Input";
 
 export default function LoginCustomerForm() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
+	const { user } = useSelector((state) => state.auth);
 	const router = useRouter();
+	const dispatch = useDispatch();
 
-	const formOptions = {};
+	const formOptions = { resolver: yupResolver(LoginCustomerSchema) };
 	const methods = useForm(formOptions);
 
-	const onSubmit = (data) => {
-		setIsSubmitting(true);
-		setTimeout(() => {
-			console.log(data);
-			setIsSubmitting(false);
-		}, 3000);
+	const { showToast: successToast } = AuthToast({
+		title: "Login Successfully.",
+		description: "You have successfully logged in as a customer.",
+		status: "success",
+		duration: 2000,
+	});
+
+	const { showToast: errorToast } = AuthToast({
+		title: "Login Failed!",
+		description: "You have entered the wrong email or password.",
+		status: "error",
+		duration: 2000,
+	});
+
+	const onSubmit = ({ email, password }) => {
+		if (user) {
+			setIsSubmitting(true);
+			if (user.email === email && user.password === password && user.role === "customer") {
+				dispatch(AuthActions.login());
+				setTimeout(() => setIsSubmitting(false), 1000);
+				setTimeout(() => successToast(), 1000);
+				setTimeout(() => router.push("/"), 3000);
+			} else {
+				setTimeout(() => setIsSubmitting(false), 1000);
+				setTimeout(() => errorToast(), 1000);
+			}
+		} else {
+			router.push("/register");
+		}
 	};
 
 	return (
