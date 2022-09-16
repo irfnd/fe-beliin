@@ -10,7 +10,7 @@ export default function ForgotPassword() {
 	const [info, setInfo] = useState(null);
 
 	return (
-		<AuthLayout title="Forgot Password">
+		<AuthLayout title="Forgot Password - Beli.in">
 			<AuthLogo />
 			<AuthHeaderText text="Forgot password" info={info} />
 			<EmailResetForm {...{ setInfo }} />

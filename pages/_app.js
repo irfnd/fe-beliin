@@ -1,3 +1,9 @@
+// Redux
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "~/helpers/redux/store";
+
+// Styles
 import { ChakraProvider } from "@chakra-ui/react";
 import themes from "~/styles/themes";
 
@@ -14,7 +20,11 @@ import "@fontsource/metropolis/900.css";
 export default function MyApp({ Component, pageProps }) {
 	return (
 		<ChakraProvider theme={themes}>
-			<Component {...pageProps} />
+			<Provider store={store}>
+				<PersistGate loading={null} persistor={persistor}>
+					<Component {...pageProps} />
+				</PersistGate>
+			</Provider>
 		</ChakraProvider>
 	);
 }

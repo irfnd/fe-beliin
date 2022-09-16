@@ -6,7 +6,7 @@ import TabMenuRole from "~/components/pages/auth/TabMenuRole";
 
 export default function Register() {
 	return (
-		<AuthLayout title="Register">
+		<AuthLayout title="Register - Beli.in">
 			<AuthLogo />
 			<AuthHeaderText text="Please sign up with your account" />
 			<TabMenuRole page="register" />

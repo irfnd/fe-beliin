@@ -6,7 +6,7 @@ import ResetPasswordForm from "~/components/pages/auth/forgotPassword/ResetPassw
 
 export default function ResetPassword() {
 	return (
-		<AuthLayout title="Reset Password">
+		<AuthLayout title="Reset Password - Beli.in">
 			<AuthLogo />
 			<AuthHeaderText text="Reset password" />
 			<ResetPasswordForm />

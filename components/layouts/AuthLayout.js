@@ -9,12 +9,14 @@ export default function AuthLayout(props) {
 	return (
 		<div>
 			<Head>
-				<title>{title} - Beli.in</title>
+				<title>{title}</title>
 			</Head>
 
-			<Flex direction="column" align="center" justify="center" minH="100vh" gap={8} py={20}>
-				{children}
-			</Flex>
+			<main>
+				<Flex direction="column" align="center" justify="center" minH="100vh" gap={8} py={20}>
+					{children}
+				</Flex>
+			</main>
 		</div>
 	);
 }
