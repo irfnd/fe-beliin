@@ -1,0 +1,70 @@
+export const colors = {
+	brand: {
+		gray: {
+			50: "#f8f0f2",
+			100: "#d9d9d9",
+			200: "#bfbfbf",
+			300: "#a6a6a6",
+			400: "#8c8c8c",
+			500: "#737373",
+			600: "#595959",
+			700: "#404040",
+			800: "#262626",
+			900: "#120b0d",
+		},
+		red: {
+			50: "#ffe5e2",
+			100: "#ffbab5",
+			200: "#fa8e86",
+			300: "#f66155",
+			400: "#f23626",
+			500: "#d91c0d",
+			600: "#aa1409",
+			700: "#790d05",
+			800: "#4b0500",
+			900: "#200000",
+		},
+		softRed: {
+			50: "#ffe6e5",
+			100: "#fabfbb",
+			200: "#f09790",
+			300: "#e86d63",
+			400: "#e04538",
+			500: "#c72c1f",
+			600: "#9c2117",
+			700: "#6f1610",
+			800: "#450c06",
+			900: "#1e0100",
+		},
+		green: {
+			50: "#e2fdea",
+			100: "#bdf1cd",
+			200: "#96e7b0",
+			300: "#6edb91",
+			400: "#47d173",
+			500: "#2eb859",
+			600: "#218f44",
+			700: "#146631",
+			800: "#073e1b",
+			900: "#001603",
+		},
+	},
+};
+
+export const fonts = {
+	body: "Metropolis, sans-serif",
+	heading: "Metropolis, sans-serif",
+	mono: "Metropolis, monospace",
+};
+
+export const fontWeights = {
+	hairline: 100,
+	thin: 200,
+	light: 300,
+	normal: 400,
+	medium: 500,
+	semibold: 600,
+	bold: 700,
+	extrabold: 800,
+	black: 900,
+};
