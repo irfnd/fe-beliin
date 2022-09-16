@@ -27,10 +27,20 @@ export default function LoginSellerForm() {
 	return (
 		<FormProvider {...methods}>
 			<form onSubmit={methods.handleSubmit(onSubmit)}>
-				<Flex direction="column" gap={8}>
+				<Flex direction="column" gap={6}>
 					<Flex direction="column" gap={4}>
 						<Input type="email" name="email" placeholder="Email" />
 						<Input type="password" name="password" placeholder="Password" />
+					</Flex>
+					<Flex justify="end">
+						<Link
+							fontWeight="semibold"
+							fontSize={14}
+							color="brand.red.500"
+							onClick={() => router.push("/forgot-password")}
+						>
+							Forgot password?
+						</Link>
 					</Flex>
 					<Button
 						type="submit"
