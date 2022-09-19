@@ -1,5 +1,5 @@
 // Styles, Icons
-import { IconButton, Icon, InputGroup, Input, InputRightElement } from "@chakra-ui/react";
+import { Flex, IconButton, Icon, InputGroup, Input, InputRightElement } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import { BiSearch, BiFilterAlt } from "react-icons/bi";
 
@@ -10,8 +10,8 @@ export default function SearchBar() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
 	return (
-		<>
-			<InputGroup w="50%">
+		<Flex w={{ base: "full", md: "40%" }}>
+			<InputGroup w="full">
 				<Input
 					type="text"
 					placeholder="Search"
@@ -38,10 +38,19 @@ export default function SearchBar() {
 				borderColor="brand.gray.300"
 				rounded="xl"
 				icon={<BiFilterAlt size={20} />}
-				onClick={onOpen}
+				_hover={{
+					bg: "brand.red.500",
+					borderColor: "brand.red.500",
+					color: "white",
+				}}
+				_active={{
+					bg: "brand.red.600",
+					borderColor: "brand.red.600",
+				}}
 				ml={2}
+				onClick={onOpen}
 			/>
 			<FilterModal {...{ isOpen, onClose }} />
-		</>
+		</Flex>
 	);
 }
