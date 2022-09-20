@@ -1,0 +1,17 @@
+export const CategoryImages = [
+	{ text: "T-Shirt", bg: "#CC0B04", url: "/assets/category-tshirt.png" },
+	{ text: "Shorts", bg: "#1C3391", url: "/assets/category-shorts.png" },
+	{ text: "Jacket", bg: "#F67B02", url: "/assets/category-jacket.png" },
+	{ text: "Pants", bg: "#E31F51", url: "/assets/category-pants.png" },
+	{ text: "Shoes", bg: "#57CD9E", url: "/assets/category-shoes.png" },
+	{ text: "High Heels", bg: "#5650D8", url: "/assets/category-high-heels.png" },
+	{ text: "Wristwatch", bg: "#B5D850", url: "/assets/category-wristwatch.png" },
+	{ text: "Handbag", bg: "#50C8D8", url: "/assets/category-handbag.png" },
+	{ text: "Bagback", bg: "#AC50D8", url: "/assets/category-bagback.png" },
+	{ text: "Socks", bg: "#D85089", url: "/assets/category-socks.png" },
+	{ text: "Cap", bg: "#53D850", url: "/assets/category-cap.png" },
+	{ text: "Tie", bg: "#D8BA50", url: "/assets/category-tie.png" },
+	{ text: "Dress", bg: "#D85091", url: "/assets/category-dress.png" },
+	{ text: "Formal suit", bg: "#50D8AF", url: "/assets/category-formal-suit.png" },
+	{ text: "Accessories", bg: "#D85050", url: "/assets/category-accessories.png" },
+];
