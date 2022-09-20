@@ -12,7 +12,7 @@ export default function Home() {
 	return (
 		<FullLayout title="Home - Beli.in">
 			<CustomContainer>
-				<Flex direction="column" gap={12} mt={120}>
+				<Flex direction="column" gap={12} mt={140}>
 					<Promotion />
 					<Category />
 					<New />

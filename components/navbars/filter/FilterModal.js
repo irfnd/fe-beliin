@@ -15,10 +15,10 @@ import {
 import { BiX } from "react-icons/bi";
 
 // Components, Images
-import FilterColor from "~/components/navbars/FilterColor";
-import FilterSize from "~/components/navbars/FilterSize";
-import FilterCategory from "~/components/navbars/FilterCategory";
-import FilterBrand from "~/components/navbars/FilterBrand";
+import FilterColor from "~/components/navbars/filter/FilterColor";
+import FilterSize from "~/components/navbars/filter/FilterSize";
+import FilterCategory from "~/components/navbars/filter/FilterCategory";
+import FilterBrand from "~/components/navbars/filter/FilterBrand";
 
 export default function FilterModal(props) {
 	const { isOpen, onClose } = props;

@@ -13,6 +13,7 @@ import NavbarMobile from "~/components/navbars/NavbarMobile";
 export default function Navbar() {
 	const searchBarResp = useBreakpointValue({ base: null, md: <SearchBar /> });
 	const authButtonResp = useBreakpointValue({ base: null, md: <AuthButton /> });
+	const spacerResp = useBreakpointValue({ base: null, md: <Spacer /> });
 
 	return (
 		<CustomContainer w="full" position="fixed" zIndex={10} top={0} py={5} bg="white" boxShadow="xl">
@@ -20,7 +21,7 @@ export default function Navbar() {
 				<BrandLogo />
 				<Spacer />
 				{searchBarResp}
-				<Spacer />
+				{spacerResp}
 				<ShoppingChart />
 				{authButtonResp}
 				<NavbarMobile />

@@ -4,7 +4,7 @@ import { useDisclosure } from "@chakra-ui/react";
 import { BiSearch, BiFilterAlt } from "react-icons/bi";
 
 // Components, Images
-import FilterModal from "~/components/navbars/FilterModal";
+import FilterModal from "~/components/navbars/filter/FilterModal";
 
 export default function SearchBar() {
 	const { isOpen, onOpen, onClose } = useDisclosure();

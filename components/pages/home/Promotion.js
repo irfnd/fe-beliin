@@ -26,7 +26,7 @@ export default function Promotion() {
 					<SwiperSlide key={i} style={{ display: "flex", width: "500px", cursor: "pointer" }}>
 						<Flex position="relative" align="center" justify="center" w="full">
 							<Image src={url} boxSize="full" objectFit="cover" rounded="xl" alt={text} />
-							<Text position="absolute" color="white" fontSize={38} fontWeight="bold">
+							<Text position="absolute" color="white" fontSize={{ base: 24, sm: 38 }} fontWeight="bold">
 								{text}
 							</Text>
 						</Flex>

@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 // Styles, Icons
 import {
 	Box,
@@ -18,6 +20,7 @@ import AuthButton from "~/components/navbars/AuthButton";
 import NavbarMobileMenu from "~/components/navbars/NavbarMobileMenu";
 
 export default function NavbarMobile() {
+	const { isLoggedIn } = useSelector((state) => state.auth);
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
 	return (
@@ -30,9 +33,9 @@ export default function NavbarMobile() {
 				<DrawerContent>
 					<DrawerCloseButton />
 					<DrawerBody display="flex" justifyContent="center" py={16}>
-						<Stack spacing={10} h="full" w="90%">
+						<Stack spacing={8} h="full" w="90%">
 							<SearchBar />
-							<NavbarMobileMenu />
+							{isLoggedIn && <NavbarMobileMenu />}
 							<AuthButton />
 						</Stack>
 					</DrawerBody>

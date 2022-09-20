@@ -1,25 +1,38 @@
-// Styles, Icons
-import { Flex, Text, Button, Avatar } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 
-export default function AuthButton(props) {
+// Styles, Icons
+import { Flex, Button } from "@chakra-ui/react";
+import { useBreakpointValue } from "@chakra-ui/react";
+
+// Components, Images
+import AccordionUser from "~/components/navbars/AccordionUser";
+import MenuUser from "~/components/navbars/MenuUser";
+
+export default function AuthButton() {
 	const { isLoggedIn, user } = useSelector((state) => state.auth);
+	const userMenu = useBreakpointValue({
+		base: <AccordionUser name={user?.name} />,
+		md: <MenuUser name={user?.name} />,
+	});
+	const router = useRouter();
+
+	const onClick = (route) => router.push(route);
 
 	return (
 		<Flex align="center" gap={2}>
 			{!isLoggedIn ? (
-				<Flex w={{ base: "full", md: "25%", lg: "17%" }}>
-					<Button colorScheme="brand.red" size={{ base: "md", md: "sm" }} rounded="3xl" w="full">
+				<Flex w="full" gap={2}>
+					<Button colorScheme="brand.red" rounded="3xl" w="full" onClick={() => onClick("/login")}>
 						Login
 					</Button>
-					<Button variant="ghost" colorScheme="brand.red" size={{ base: "md", md: "sm" }} rounded="3xl" w="full">
+					<Button variant="ghost" colorScheme="brand.red" rounded="3xl" w="full" onClick={() => onClick("/register")}>
 						Signup
 					</Button>
 				</Flex>
 			) : (
 				<Flex justify="space-between" align="center" w="full">
-					<Text display={{ base: "block", md: "none" }}>{user.name}</Text>
-					<Avatar size="sm" src="https://bit.ly/dan-abramov" />
+					{userMenu}
 				</Flex>
 			)}
 		</Flex>

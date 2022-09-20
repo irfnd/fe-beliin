@@ -13,14 +13,14 @@ export default function ProductCard(props) {
 				<Image src={product.image} alt={product.name} objectFit="cover" w="full" roundedTop="xl" />
 			</Flex>
 			<Flex direction="column" p={4} gap={1.5}>
-				<Text fontSize={16} fontWeight="medium">
+				<Text fontSize={16} fontWeight="medium" noOfLines={2}>
 					{product.name}
 				</Text>
 				<Flex direction="column">
-					<Text color="brand.red.500" fontSize={20} fontWeight="medium">
+					<Text color="brand.red.500" fontSize={20} fontWeight="bold">
 						{useCurrency(product.price)}
 					</Text>
-					<Text color="brand.gray.300" fontSize={14} fontWeight="medium">
+					<Text color="brand.gray.300" fontSize={14}>
 						{product.seller}
 					</Text>
 				</Flex>
