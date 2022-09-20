@@ -1,26 +1,26 @@
-import { Navigation, Pagination, Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 // Styles, Icons
 import "swiper/css/bundle";
-import { Flex, Text, Image } from "@chakra-ui/react";
+import { Flex, Text, Image, IconButton } from "@chakra-ui/react";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
 // Constants
 import { PromotionImages } from "~/constants/PromotionConst";
 
 export default function Promotion() {
 	return (
-		<Flex h={200}>
+		<Flex position="relative" h={200}>
 			<Swiper
-				modules={[Autoplay, Navigation, Pagination]}
+				modules={[Autoplay, Pagination]}
 				spaceBetween={20}
 				slidesPerView="auto"
 				autoplay={{ delay: 3000, disableOnInteraction: false }}
 				pagination={{ clickable: true, dynamicBullets: true }}
-				style={{ width: "inherit" }}
-				loop
-				navigation
+				style={{ width: "inherit", position: "static" }}
 				centeredSlides
+				loop
 			>
 				{PromotionImages.map(({ text, url }, i) => (
 					<SwiperSlide key={i} style={{ display: "flex", width: "500px", cursor: "pointer" }}>
@@ -32,7 +32,45 @@ export default function Promotion() {
 						</Flex>
 					</SwiperSlide>
 				))}
+				<PrevButton />
+				<NextButton />
 			</Swiper>
 		</Flex>
+	);
+}
+
+function PrevButton() {
+	const swiper = useSwiper();
+
+	return (
+		<IconButton
+			icon={<BiChevronLeft size={32} />}
+			colorScheme="brand.red"
+			position="absolute"
+			rounded="full"
+			top="50%"
+			left={0}
+			transform="translate(-50%, -50%)"
+			zIndex={2}
+			onClick={() => swiper.slidePrev()}
+		/>
+	);
+}
+
+function NextButton() {
+	const swiper = useSwiper();
+
+	return (
+		<IconButton
+			icon={<BiChevronRight size={32} />}
+			colorScheme="brand.red"
+			position="absolute"
+			rounded="full"
+			top="50%"
+			right={0}
+			transform="translate(50%, -50%)"
+			zIndex={2}
+			onClick={() => swiper.slideNext()}
+		/>
 	);
 }
