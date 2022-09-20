@@ -5,13 +5,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterSellerSchema } from "~/helpers/validations";
 import { useDispatch } from "react-redux";
 import { AuthActions } from "~/helpers/redux/slices/AuthSlice";
-import AuthToast from "~/components/toasts/authToast";
 
 // Styles, Icons
 import { Flex, Text, Link, Button } from "@chakra-ui/react";
 
 // Components, Images
 import Input from "~/components/inputs/Input";
+import AuthToast from "~/components/toasts/AuthToast";
 
 export default function RegisterSellerForm() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
